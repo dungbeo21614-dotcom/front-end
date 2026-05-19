@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bộ đếm tương tác</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      #counter {
+        font-size: 60px;
+        font-weight: bold;
+        margin: 20px;
+        color: black;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+      }
+
+      .increase {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .decrease {
+        background-color: #f44336;
+        color: white;
+      }
+
+      .reset {
+        background-color: #555;
+        color: white;
+      }
+
+      .plus10 {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bộ đếm lượt tương tác</h1>
+
+    <!-- Hiển thị số đếm -->
+    <div id="counter">0</div>
+
+    <!-- Các nút điều khiển -->
+    <button class="increase">Tăng +1</button>
+    <button class="decrease">Giảm -1</button>
+    <button class="reset">Đặt lại</button>
+    <button class="plus10">Tăng +10</button>
+
+    <script>
+      // Biến trạng thái
+      let count = 0;
+
+      // Hàm cập nhật giao diện
+      function updateCounter() {
+        // Cập nhật số
+        $("#counter").text(count);
+
+        // Đổi màu theo giá trị
+        if (count > 0) {
+          $("#counter").css("color", "green");
+        } else if (count < 0) {
+          $("#counter").css("color", "red");
+        } else {
+          $("#counter").css("color", "black");
+        }
+      }
+
+      // Sự kiện tăng
+      $(".increase").click(function () {
+        count++;
+        updateCounter();
+      });
+
+      // Sự kiện giảm
+      $(".decrease").click(function () {
+        count--;
+        updateCounter();
+      });
+
+      // Sự kiện đặt lại
+      $(".reset").click(function () {
+        count = 0;
+        updateCounter();
+      });
+
+      // Tăng nhanh +10
+      $(".plus10").click(function () {
+        count += 10;
+        updateCounter();
+      });
+    </script>
+  </body>
+</html>
